@@ -1,0 +1,28 @@
+<h1>映画の情報を修正</h1>
+
+<p><%= link_to "映画一覧（管理者画面）に戻る", action: "index" %></p>
+
+
+<%= form_with model: @movie, url: "/admin/movies/#{@movie.id}" do |form| %>
+    <div>
+      <%= form.label :タイトル %>
+      <%= form.text_field :name %>
+    </div>
+    <div>
+      <%= form.label :公開年 %>
+      <%= form.text_field :year %>
+    </div>
+    <div>
+      <%= form.label :概要 %>
+      <%= form.text_area :description %>
+    </div>
+    <%= form.label :画像URL %>
+    <%= form.text_field :image_url %>
+    </div>
+    <br>
+    <%= form.label :上映中 %>
+    <%= form.check_box :is_showing %>
+    </div>
+    <br>
+    <%= form.submit %>
+  <% end %>
